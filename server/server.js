@@ -4,6 +4,11 @@ const connectDb = require("./config/dbConnection");
 const errorHandler = require("./middlewares/errorHandler");
 const cors = require("cors");
 
+//env file config
+const dotenv = require("dotenv");
+dotenv.config();
+
+
 connectDb();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,6 +22,6 @@ app.get('/', (req, res) => {
 });
 
 // Start the server on port 3000
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
 });
